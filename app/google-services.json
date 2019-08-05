@@ -1,0 +1,122 @@
+{
+  "project_info": {
+    "project_number": "693137265873",
+    "firebase_url": "https://remeberwords.firebaseio.com",
+    "project_id": "remeberwords",
+    "storage_bucket": "remeberwords.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693137265873:android:2cb161160b9fc9e6",
+        "android_client_info": {
+          "package_name": "com.example.nyan.rememberwords2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693137265873-0qronh8posrk46usu6668pk50cqg6j8k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nyan.rememberwords2",
+            "certificate_hash": "73264a6dca00c327c8e870b300afb8561067e288"
+          }
+        },
+        {
+          "client_id": "693137265873-8vm9bk1gcmhoonp36dsrousde6tgitd2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdvG2s7sbcWnEgi1bctBTIGtW-lP1SsMk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693137265873-8vm9bk1gcmhoonp36dsrousde6tgitd2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693137265873:android:169cb2469d883d91",
+        "android_client_info": {
+          "package_name": "com.example.rememberenglishwords"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693137265873-7iv58v8sef7mbrgo4mha2i44o7pabfij.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rememberenglishwords",
+            "certificate_hash": "c5de0642e915a10701d5dac89c54791b08a0e2b1"
+          }
+        },
+        {
+          "client_id": "693137265873-8vm9bk1gcmhoonp36dsrousde6tgitd2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdvG2s7sbcWnEgi1bctBTIGtW-lP1SsMk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693137265873-8vm9bk1gcmhoonp36dsrousde6tgitd2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693137265873:android:ed32e1a765992802",
+        "android_client_info": {
+          "package_name": "com.example.rememberwords3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693137265873-o6ugm2glcrdnfta5vhoqs2ptiaal189n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rememberwords3",
+            "certificate_hash": "73264a6dca00c327c8e870b300afb8561067e288"
+          }
+        },
+        {
+          "client_id": "693137265873-8vm9bk1gcmhoonp36dsrousde6tgitd2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdvG2s7sbcWnEgi1bctBTIGtW-lP1SsMk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693137265873-8vm9bk1gcmhoonp36dsrousde6tgitd2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
