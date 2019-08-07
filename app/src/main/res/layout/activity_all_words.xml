@@ -9,14 +9,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-        <Button
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/buttonViewTemporary"
-            android:text="View"/>
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
+            <ImageButton
+                android:id="@+id/buttonNewTopic"
+                android:layout_width="150px"
+                android:layout_height="150px"
+                android:src="@mipmap/plustopic"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create new topic"
+                android:textSize="10pt"
+                android:textColor="@color/colorBlue"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your Topics"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"/>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewTopics"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
+            android:layout_height="match_parent"
+            ></androidx.recyclerview.widget.RecyclerView>
 </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

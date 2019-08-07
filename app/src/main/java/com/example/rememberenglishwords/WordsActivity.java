@@ -1,11 +1,14 @@
 package com.example.rememberenglishwords;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -38,22 +41,29 @@ public class WordsActivity extends AppCompatActivity {
         //получаем название топика
         Intent intent = getIntent();
         collectionName = intent.getStringExtra("topic");
+        //устанавливаем это название топика в Title
+        setTitle(collectionName);
 
         textAddWord = findViewById(R.id.textAddWord);
         textAddTranslation = findViewById(R.id.textAddTranslation);
         expListView = findViewById(R.id.expListView);
         buttonAddNewWord = findViewById(R.id.buttonAddNewWord);
 
-        setGroups();
+        //засунем в отедльный поток
+        new downloadListWords().execute();
+//        setGroups();
 
         buttonAddNewWord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //добавить в список Expandable новое слово
                 words = new Words();
-               // collectionName = "every_day";
                 words.addWord(collectionName, textAddWord.getText().toString(), textAddTranslation.getText().toString());
-                //words.addWord(myRef,textAddWord.getText().toString(),"перевод");
+                textAddWord.setText("");
+                textAddTranslation.setText("");
+                Toast toast = Toast.makeText(getApplicationContext(),"Успешно добавлено!",Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
+                toast.show();
             }
         });
 //        //можно убрать
@@ -65,9 +75,31 @@ public class WordsActivity extends AppCompatActivity {
 //        });
     }
 
+    private class downloadListWords extends AsyncTask<Void,Void,Void>{
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            words = new Words();
+            words.readWord(collectionName);
+            listDataChild = words.getListDataChild();
+            listDataHeader = words.getListDataHeader();
+
+            customExpandableListViewAdapter = new CustomExpandableListViewAdapter(getApplicationContext(),listDataHeader,listDataChild);
+            customExpandableListViewAdapter.notifyDataSetChanged();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void s) {
+            super.onPostExecute(s);
+            expListView.setAdapter(customExpandableListViewAdapter);
+//            customExpandableListViewAdapter.notifyDataSetChanged();
+
+        }
+    }
     private void setGroups(){
-        words = new Words(listDataHeader,listDataChild);
-        // collectionName = "every_day";
+//        words = new Words(listDataHeader,listDataChild);
+        words = new Words();
         words.readWord(collectionName);
         listDataChild = words.getListDataChild();
         listDataHeader = words.getListDataHeader();

@@ -21,10 +21,10 @@ import java.util.Map;
  */
 
 public class Words {
-    private ArrayList<String> englishWords = new ArrayList<>();
-    private ArrayList<String> russianWords = new ArrayList<>();
-
-    private HashMap<String, String> translationRead = new HashMap<>();
+//    private ArrayList<String> englishWords = new ArrayList<>();
+//    private ArrayList<String> russianWords = new ArrayList<>();
+//
+//    private HashMap<String, String> translationRead = new HashMap<>();
     private Map<String, String> translationWrite = new HashMap<>();
 
     private List<String> listDataHeader = new ArrayList<>();
