@@ -35,10 +35,11 @@
             android:textSize="20dp"
             android:textStyle="bold"
             android:layout_margin="10dp"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewTopics"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            ></androidx.recyclerview.widget.RecyclerView>
+            android:layout_marginBottom="5dp"></androidx.recyclerview.widget.RecyclerView>
 </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

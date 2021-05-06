@@ -25,6 +25,7 @@ public class TopicActivity extends AppCompatActivity {
     protected RecyclerView topicRecyclerView;
     protected TopicController topicController;
     protected ImageButton buttonNewTopic;
+    protected ImageButton buttonDeleteTopic;
     private String newTopicName;
 
     public static final String APP_TOPICS = "topics";
@@ -49,6 +50,7 @@ public class TopicActivity extends AppCompatActivity {
         topicController = new TopicController();
         topicRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         topicRecyclerView.setAdapter(topicController);
+        createBasicTopics();
 
         buttonNewTopic = findViewById(R.id.buttonNewTopic);
         buttonNewTopic.setOnClickListener(new View.OnClickListener() {
@@ -92,7 +94,14 @@ public class TopicActivity extends AppCompatActivity {
                 builder.show();
             }
         });
-        createBasicTopics();
+//
+//        buttonDeleteTopic = findViewById(R.id.buttonDeleteTopic);
+//        buttonDeleteTopic.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                newTopic.delete();
+//            }
+//        });
     }
 
     //get all topics from SharedPreferences

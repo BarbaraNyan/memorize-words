@@ -7,7 +7,8 @@
     tools:context=".MainActivity">
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
     <Button
         android:id="@+id/all_words"
         android:layout_width="wrap_content"
@@ -15,6 +16,16 @@
         android:text="All Words"
         app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/pink_bubble"/>
+
+    <Button
+        android:id="@+id/button_translate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Translate word"
+        app:layout_constraintTop_toBottomOf="@+id/all_words"
+        android:background="@drawable/pink_bubble"
+        android:layout_marginTop="15dp"
+        />
 </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

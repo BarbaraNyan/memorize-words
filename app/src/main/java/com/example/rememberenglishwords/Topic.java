@@ -4,6 +4,8 @@ import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.ImageView;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -20,6 +22,7 @@ public class Topic {
     //public Image image;
 
     public List<Topic> infoTopic = new ArrayList<>();
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     public Topic(){}
     public Topic(String textAbout, String numberWords){
@@ -35,5 +38,10 @@ public class Topic {
     //add new topicName
     public void add(String newTopicName){
         infoTopic.add(new Topic(newTopicName,"10 words"));
+    }
+    //delete topic
+    public void delete(String collectionName){
+        db.collection(collectionName).document()
+                .delete();
     }
 }

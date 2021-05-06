@@ -10,9 +10,22 @@
         android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        <ImageButton
+            android:id="@+id/btnAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#F9F9F9"
+            android:src="@mipmap/plusnew"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
         <EditText
             android:id="@+id/textAddWord"
             android:layout_width="140dp"
@@ -73,12 +86,15 @@
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
-        android:layout_width="368dp"
-        android:layout_height="437dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linear">
 
@@ -87,11 +103,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="All words..."
-                android:textSize="30dp"/>
             <ExpandableListView
                 android:id="@+id/expListView"
                 android:layout_width="match_parent"
@@ -99,6 +110,12 @@
                 android:choiceMode="singleChoice"
                 android:dividerHeight="1dp"
                 android:groupIndicator="@drawable/group_indicator_selector"></ExpandableListView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All words..."
+                android:textSize="30dp" />
         </LinearLayout>
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
