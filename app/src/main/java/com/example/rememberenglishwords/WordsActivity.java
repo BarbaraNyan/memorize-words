@@ -80,7 +80,7 @@ public class WordsActivity extends AppCompatActivity {
         expListView.refreshDrawableState();
 
         //засунем в отедльный поток
-//        new downloadListWords().execute();
+        new downloadListWords().execute();
 //        expListView.setAdapter(customExpandableListViewAdapter);
 //        setGroups();
 
@@ -118,10 +118,10 @@ public class WordsActivity extends AppCompatActivity {
 //        });
     }
 
-    private class downloadListWords extends AsyncTask<Void,Void,Void>{
+    private class downloadListWords extends AsyncTask<Void,Void,ExpandableListView>{
 
         @Override
-        protected Void doInBackground(Void... voids) {
+        protected ExpandableListView doInBackground(Void... voids) {
             words = new Words();
             words.readWord(collectionName);
             listDataChild = words.getListDataChild();
@@ -130,21 +130,30 @@ public class WordsActivity extends AppCompatActivity {
 //            customExpandableListViewAdapter = new CustomExpandableListViewAdapter(getApplicationContext(),listDataHeader,listDataChild);
             customExpandableListViewAdapter = new CustomExpandableListViewAdapter(WordsActivity.this,listDataHeader,listDataChild);
 //            customExpandableListViewAdapter.notifyDataSetChanged();
-            return null;
+
+            customExpandableListViewAdapter.notifyDataSetChanged();
+            expListView.invalidateViews();
+
+            return expListView;
         }
 
         @Override
-        protected void onPostExecute(Void s) {
-            super.onPostExecute(s);
-//            customExpandableListViewAdapter = new CustomExpandableListViewAdapter(getApplicationContext(),listDataHeader,listDataChild);
-//            customExpandableListViewAdapter.notifyDataSetChanged();
-            expListView.setAdapter(customExpandableListViewAdapter);
-            customExpandableListViewAdapter.notifyDataSetChanged();
-            expListView.invalidateViews();
-            expListView.refreshDrawableState();
-//            customExpandableListViewAdapter.notifyDataSetChanged();
-
+        protected void onPostExecute(ExpandableListView expandableListView) {
+            super.onPostExecute(expandableListView);
+            expandableListView.refreshDrawableState();
         }
+
+//        @Override
+//        protected void onPostExecute(Void s) {
+//            super.onPostExecute(s);
+////            customExpandableListViewAdapter = new CustomExpandableListViewAdapter(getApplicationContext(),listDataHeader,listDataChild);
+////            customExpandableListViewAdapter.notifyDataSetChanged();
+//            customExpandableListViewAdapter.notifyDataSetChanged();
+//            expListView.invalidateViews();
+//            expListView.refreshDrawableState();
+////            customExpandableListViewAdapter.notifyDataSetChanged();
+//
+//        }
     }
     private void setGroups(){
 //        words = new Words(listDataHeader,listDataChild);

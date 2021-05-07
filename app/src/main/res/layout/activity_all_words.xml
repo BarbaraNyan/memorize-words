@@ -36,10 +36,20 @@
             android:textStyle="bold"
             android:layout_margin="10dp"/>
 
-        <androidx.recyclerview.widget.RecyclerView
+        <com.factor.bouncy.BouncyRecyclerView
             android:id="@+id/recyclerViewTopics"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="5dp"></androidx.recyclerview.widget.RecyclerView>
+            app:recyclerview_fling_animation_size=".7"
+            app:recyclerview_overscroll_animation_size=".7"
+            app:recyclerview_damping_ratio="DAMPING_RATIO_LOW_BOUNCY"
+            app:recyclerview_stiffness="STIFFNESS_MEDIUM"
+            app:allow_drag_reorder="true"
+            app:allow_item_swipe="false"/>
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/recyclerViewTopics"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginBottom="5dp"></androidx.recyclerview.widget.RecyclerView>-->
 </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

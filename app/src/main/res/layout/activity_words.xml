@@ -14,18 +14,29 @@
         app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent">
+
         <ImageButton
             android:id="@+id/btnAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="top"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
             android:background="#F9F9F9"
             android:src="@mipmap/plusnew"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="37dp"
+            android:layout_gravity="center"
+            android:paddingStart="15dp"
+            android:text="Добавить новое слово"
+            android:textSize="20dp" />
+
         <EditText
             android:id="@+id/textAddWord"
             android:layout_width="140dp"
@@ -43,13 +54,15 @@
             android:singleLine="false"
             android:textSize="20dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="invisible"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="↔	"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            android:visibility="invisible"/>
         <EditText
             android:id="@+id/textAddTranslation"
             android:layout_width="140dp"
@@ -66,7 +79,8 @@
             android:shadowRadius="2"
             app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textAddWord" />
+            app:layout_constraintTop_toBottomOf="@id/textAddWord"
+            android:visibility="invisible"/>
 
         <ImageButton
             android:id="@+id/buttonAddNewWord"
@@ -80,7 +94,8 @@
             android:src="@mipmap/plusnew"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textAddWord"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="invisible"/>
 
     </LinearLayout>
 

@@ -46,6 +46,7 @@ public class TranslateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_translate);
+        setTitle("Translator");
 
         Intent intent = getIntent();
         collectionName = intent.getStringExtra("topic");
@@ -83,7 +84,7 @@ public class TranslateActivity extends AppCompatActivity {
                 Toast toast = Toast.makeText(getApplicationContext(),"Успешно добавлено!",Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
-                btn_want_add.setVisibility(View.INVISIBLE);
+                btn_want_add.setVisibility(View.GONE);
                 btn_want_back.setVisibility(View.VISIBLE);
             }
         });
@@ -120,18 +121,26 @@ public class TranslateActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(List<String> strings) {
             super.onPostExecute(strings);
-            final CharSequence[] itemsWords = listWords.toArray(new CharSequence[listWords.size()]);
+            if(listWords != null) {
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(TranslateActivity.this);
-            builder.setTitle("Choose translation");
-            builder.setItems(itemsWords, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    text_russian.setText(itemsWords[which]);
-                    btn_want_add.setVisibility(View.VISIBLE);
-                }
-            });
-            builder.show();
+                final CharSequence[] itemsWords = listWords.toArray(new CharSequence[listWords.size()]);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(TranslateActivity.this);
+                builder.setTitle("Choose translation");
+                builder.setItems(itemsWords, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        text_russian.setText(itemsWords[which]);
+                        btn_want_add.setVisibility(View.VISIBLE);
+                    }
+                });
+                builder.show();
+            }
+            else{
+                AlertDialog.Builder builder = new AlertDialog.Builder(TranslateActivity.this);
+                builder.setTitle("Ошибка").setMessage("Перевода не найдено. Введите другое слово.").setPositiveButton("OK", null).create();
+                builder.show();
+            }
         }
     }
 }

@@ -33,6 +33,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.squareup.okhttp3:okhttp:3.5.0'
     implementation 'org.jsoup:jsoup:1.13.1'
+    implementation 'com.factor:bouncy:1.8'
 }
 repositories {
     mavenCentral()
