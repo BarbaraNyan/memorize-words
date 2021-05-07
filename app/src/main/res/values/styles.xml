@@ -8,4 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="MyStylePinkButton">
+        <item name="android:background">@drawable/pink_circle</item>
+    </style>
+
+    <style name="MyStyleBlueButton">
+        <item name="android:background">@drawable/pink_bubble</item>
+    </style>
+
 </resources>

@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -14,7 +15,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -25,6 +28,7 @@ public class TopicActivity extends AppCompatActivity {
     protected RecyclerView topicRecyclerView;
     protected TopicController topicController;
     protected ImageButton buttonNewTopic;
+    protected ImageButton buttonDeleteTopic;
     private String newTopicName;
 
     public static final String APP_TOPICS = "topics";
@@ -49,6 +53,28 @@ public class TopicActivity extends AppCompatActivity {
         topicController = new TopicController();
         topicRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         topicRecyclerView.setAdapter(topicController);
+
+        createBasicTopics();
+
+        TopicActivity.this.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+//                createBasicTopics();
+                List<String> listDataHeader = new ArrayList<>();
+                for(int i = 0; i<topicController.topicList.size(); i++) {
+//            System.out.println(topicController.topicList.size());
+                    Topic topic = topicController.topicList.get(i);
+                    Words words = new Words();
+                    words.readWord(topic.textAbout);
+                    System.out.println(topic.textAbout);
+                    listDataHeader = words.getListDataHeader();
+                    System.out.println(listDataHeader.size());
+                    topic.setNumber(listDataHeader.size());
+                }
+                topicController.notifyDataSetChanged();
+
+            }
+        });
 
         buttonNewTopic = findViewById(R.id.buttonNewTopic);
         buttonNewTopic.setOnClickListener(new View.OnClickListener() {
@@ -92,7 +118,14 @@ public class TopicActivity extends AppCompatActivity {
                 builder.show();
             }
         });
-        createBasicTopics();
+//
+//        buttonDeleteTopic = findViewById(R.id.buttonDeleteTopic);
+//        buttonDeleteTopic.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                newTopic.delete();
+//            }
+//        });
     }
 
     //get all topics from SharedPreferences
@@ -109,8 +142,30 @@ public class TopicActivity extends AppCompatActivity {
         if(topicNamesTemp.size()!=0) {
             newTopic.putTopics(topicNamesTemp);
             for (int i = 0; i < newTopic.infoTopic.size(); i++) {
+//                Topic topic = newTopic.setNumberWords(newTopic.infoTopic.get(i));
                 topicController.topicList.add(newTopic.infoTopic.get(i));
             }
         }
+    }
+
+    private void setNumberWords(Topic topic, int i){
+        topic.setNumberWords(topic.infoTopic.get(i));
+    }
+
+    private void changeNumberWords(){
+
+//        List<String> listDataHeader = new ArrayList<>();
+//
+//        for(int i = 0; i<topicController.topicList.size(); i++) {
+//            Words words = new Words();
+//            Topic topic = topicController.topicList.get(i);
+//            words.readWord(topic.infoToptextAbout);
+//            listDataHeader = words.getListDataHeader();
+//            topic.numberWords = String.valueOf(listDataHeader.size());
+//
+////            topic.setNumberWords(topic);
+//        }
+//        topicController.notifyDataSetChanged();
+
     }
 }

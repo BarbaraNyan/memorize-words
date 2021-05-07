@@ -6,6 +6,11 @@ import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.factor.bouncy.BouncyRecyclerView;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +18,7 @@ import java.util.List;
  * Created by NYAN on 27.06.2019.
  */
 
-public class TopicController extends RecyclerView.Adapter {
+public class TopicController extends BouncyRecyclerView.Adapter {
 
     public List<Topic> topicList = new ArrayList<>();
     String collectionName;
@@ -43,6 +48,34 @@ public class TopicController extends RecyclerView.Adapter {
     public int getItemCount() {
         return topicList.size();
     }
+
+    @Override
+    public void onItemMoved(int fromPosition, int toPosition) {
+        Topic item = topicList.remove(fromPosition);
+        topicList.add(toPosition, item);
+        notifyItemMoved(fromPosition, toPosition);
+    }
+
+    @Override
+    public void onItemReleased(@NotNull RecyclerView.ViewHolder viewHolder) {
+        viewHolder.itemView.setAlpha(1f);
+    }
+
+    @Override
+    public void onItemSelected(@Nullable RecyclerView.ViewHolder viewHolder) {
+        viewHolder.itemView.setAlpha(0.5f);
+    }
+
+    @Override
+    public void onItemSwipedToEnd(@NotNull RecyclerView.ViewHolder viewHolder, int i) {
+
+    }
+
+    @Override
+    public void onItemSwipedToStart(@NotNull RecyclerView.ViewHolder viewHolder, int i) {
+    }
+
+
 //
 //    public String getCollectionName(){
 //        return collectionName;

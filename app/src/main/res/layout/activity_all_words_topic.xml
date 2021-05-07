@@ -2,6 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingStart="15dp"
+    android:paddingEnd="15dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <LinearLayout
     android:layout_width="match_parent"
@@ -12,13 +14,13 @@
         android:id="@+id/topicPhoto"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/daily" />
+        app:srcCompat="@mipmap/english" />
     <TextView
         android:id="@+id/topicTextAbout"
         android:layout_width="wrap_content"
@@ -50,10 +52,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:background="@drawable/pink_bubble"
-        android:layout_marginLeft="300dp"
+        android:layout_marginLeft="230dp"
         android:layout_marginTop="115dp"
+        android:background="@drawable/pink_bubble"
         android:text="View" />
+
+    <ImageButton
+        android:id="@+id/buttonDeleteTopic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="115dp"
+        android:layout_toEndOf="@+id/buttonViewTopic"
+        android:layout_toRightOf="@+id/buttonViewTopic"
+        android:src="@mipmap/trash" />
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"

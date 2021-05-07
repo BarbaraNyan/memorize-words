@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="15dp"
+    android:paddingStart="15dp"
+    android:paddingEnd="15dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Введите слово на английском:"
+        android:textSize="20dp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/text_english"
+        android:hint="English word"
+        android:inputType="textPersonName"
+        android:selectAllOnFocus="false"
+        android:shadowColor="@color/colorPrimaryDark"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
+        android:singleLine="false"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/btn_translate"
+        android:layout_width="200dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="50dp"
+        android:text="Translate"
+        style="@style/MyStyleBlueButton"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Перевод: "
+            android:textSize="20dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_russian"
+            android:textSize="20dp"
+            android:hint="Russian word"
+            android:selectAllOnFocus="false"
+            android:shadowColor="@color/colorPrimaryDark"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:singleLine="false"
+            />
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn_want_add"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Add in topic"
+        app:layout_constraintTop_toBottomOf="@+id/button_translate"
+        style="@style/MyStyleBlueButton"
+        android:layout_marginBottom="15dp"
+        android:visibility="gone"
+        />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_want_back"
+            android:text="Return back"
+            android:visibility="gone"
+            style="@style/MyStyleBlueButton"
+            app:layout_constraintTop_toBottomOf="@+id/button_translate" />
+
+
+</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

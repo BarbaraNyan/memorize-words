@@ -10,6 +10,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     protected Button allWords;
+    protected Button translateWords;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +24,21 @@ public class MainActivity extends AppCompatActivity {
                 openTopics();
             }
         });
+
+        translateWords = findViewById(R.id.button_translate);
+        translateWords.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                openTranslator();
+            }
+        });
     }
 
     private void openTopics(){
         startActivity(new Intent(this,TopicActivity.class));
+    }
+    private void openTranslator(){
+        startActivity(new Intent(this, TranslateActivity.class));
     }
 }
